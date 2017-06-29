@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Object to set the file output type, as either Tiff or PNM style format.
  * Created by ryan on 29/06/17.
  */
 public class SetFileOutputTypeTest extends TestCase {
