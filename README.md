@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/OhmGeek/JDCraw.svg?branch=master)](https://travis-ci.org/OhmGeek/JDCraw)
 [![codebeat badge](https://codebeat.co/badges/5b0bcc7b-10af-406f-84f8-5cb78b990a11)](https://codebeat.co/projects/github-com-ohmgeek-jdcraw-master)
+[![codecov](https://codecov.io/gh/OhmGeek/JDCraw/branch/master/graph/badge.svg)](https://codecov.io/gh/OhmGeek/JDCraw)
 # JDCraw
 ## Introduction
 When investigating the use of RAW processing with Java, I found there weren't many useful tools available.
