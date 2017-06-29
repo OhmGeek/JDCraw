@@ -27,7 +27,7 @@ public class DCRawManager {
         }
 
         // set the entire process to start running
-        dcrawProcess.command(OptionStringBuilder.build(options, this.file));
+        dcrawProcess.command(OptionStringBuilder.build(options.getRendererArgs(), this.file));
 
         // start running the render process
         dcrawProcess.start();
