@@ -7,7 +7,7 @@ DCRaw is the standard way of processing RAW images, but there was no Java librar
 
 JDCraw is simply a wrapper around the executable, which provides function calls that equally call functions on the executable. This isn't the nicest option, but to me it appeared nicer than using JNI (and slightly quicker for proof of concept).
 
-The current system very much in **in development**, and as such, I wouldn't yet use it in a production system. 
+The current system is very much **in development**, and as such, I wouldn't yet use it in a production system. 
 
 ## Dependencies
 The project relies on Maven.
