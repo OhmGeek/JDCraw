@@ -4,6 +4,7 @@ import org.apache.commons.io.FilenameUtils;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 /**
  * The uk.co.ohmgeek.jdcraw.DCRawManager Class manages DCRaw operations.
@@ -13,7 +14,7 @@ import java.io.IOException;
 public class DCRawManager {
     private DCRawExecutableOptions options;
     private File file;
-
+    private List<RAWOperation> operationList;
     public DCRawManager(File fileToProcess) {
         this.options = null;
         this.file = fileToProcess;
@@ -42,8 +43,8 @@ public class DCRawManager {
         return outputFilename;
     }
 
-    public void setOptions() {
-
+    public void addOperation(RAWOperation op) {
+        operationList.add(op);
     }
 
 }
