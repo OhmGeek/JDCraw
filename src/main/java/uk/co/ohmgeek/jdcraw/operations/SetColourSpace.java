@@ -6,14 +6,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * A raw operation object for setting the colour space of an image.
+ *
  * Created by ryan on 29/06/17.
  */
 public class SetColourSpace implements RAWOperation{
     private ColourSpace spaceToUse;
+
+    /**
+     * Create an operation to set the Colour Space.
+     * @param spaceToUse : the specified colour space, found in the ColourSpace enum.
+     */
     public SetColourSpace(ColourSpace spaceToUse) {
         this.spaceToUse = spaceToUse;
     }
 
+    /**
+     * Fetch an argument list to be passed to DCraw.
+     * @return args : An argument list (of strings), which are the arguments to pass.
+     */
     public List<String> getArgumentList() {
         List<String> args = new ArrayList<String>();
 

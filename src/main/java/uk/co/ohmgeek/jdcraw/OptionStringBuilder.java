@@ -9,6 +9,12 @@ import java.util.List;
  * Created by ryan on 29/06/17.
  */
 public class OptionStringBuilder {
+    /**
+     * Build up the process string of an object.
+     * @param renderedArgs : the arguments regarding the property
+     * @param file : the filename to render
+     * @return args : the full argument string to build a process with.
+     */
     // todo make this less dependent on dcraw (so we can choose what renderer to use, in case a better one is available)
     public static List<String> build(List<String> renderedArgs, File file) {
         List<String> args = new ArrayList<String>();

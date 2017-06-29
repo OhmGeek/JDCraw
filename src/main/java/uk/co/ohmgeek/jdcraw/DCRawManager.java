@@ -43,6 +43,10 @@ public class DCRawManager {
         return outputFilename;
     }
 
+    /**
+     * Add an operation to be made by DCRaw
+     * @param op : an instance of RawOperation to be added to the operation list.
+     */
     public void addOperation(RAWOperation op) {
         operationList.add(op);
     }
