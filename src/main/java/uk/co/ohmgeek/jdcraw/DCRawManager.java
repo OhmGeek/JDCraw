@@ -1,5 +1,7 @@
 package uk.co.ohmgeek.jdcraw;
 
+import org.apache.commons.io.FilenameUtils;
+
 import java.io.File;
 import java.io.IOException;
 
@@ -17,8 +19,8 @@ public class DCRawManager {
         this.file = fileToProcess;
     }
 
-    public void process() throws IOException {
-        ProcessBuilder dcrawProcess = new ProcessBuilder();
+    public String process() throws IOException {
+        ProcessBuilder dcrawProcessBuilder = new ProcessBuilder();
 
         if(options == null) {
             // use default options
@@ -27,11 +29,17 @@ public class DCRawManager {
         }
 
         // set the entire process to start running
-        dcrawProcess.command(OptionStringBuilder.build(options.getRendererArgs(), this.file));
+        dcrawProcessBuilder.command(OptionStringBuilder.build(options.getRendererArgs(), this.file));
 
         // start running the render process
-        dcrawProcess.start();
+        Process dcrawProcess = dcrawProcessBuilder.start();
 
+        // get the filename
+        // todo use a function to output this, as it will be tiff with -T arg, otherwise it will be different.
+        String outputFilename = FilenameUtils.removeExtension(this.file.getPath());
+        outputFilename = outputFilename.concat(".tiff"); //this is for a tiff file
+        // now get the result.
+        return outputFilename;
     }
 
     public void setOptions() {

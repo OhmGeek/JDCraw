@@ -1,6 +1,8 @@
 package uk.co.ohmgeek.jdcraw;
-import java.io.File;
+import sun.misc.IOUtils;
+import sun.nio.cs.StandardCharsets;
 
+import java.io.*;
 /**
  * This is a data structure that stores the result from a DCRaw executed process.
  * I.e. the output, error codes, and the location of the output filename.
@@ -13,10 +15,9 @@ public class DCRawExecutableResult {
     private int exitCode;
     private File outputFile;
 
-    public DCRawExecutableResult() {
-        stdOutput = null;
-        stdError = null;
-        exitCode = -1;
+    public DCRawExecutableResult(OutputStream outputStream, InputStream errorStream, int exitCode) {
+
+        exitCode = exitCode;
         outputFile = null;
 
     }
