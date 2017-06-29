@@ -50,5 +50,4 @@ public class DCRawManager {
     public void addOperation(RAWOperation op) {
         operationList.add(op);
     }
-
 }
