@@ -18,7 +18,7 @@ public class SetWBCustomOperation implements RAWOperation {
      * @param mul2 : multiplier 2
      * @param mul3 : multiplier 3
      */
-    public SetWBCustomOperation(int mul0, int mul1, int mul2, int mul3) {
+    public SetWBCustomOperation(int mul0, int mul1, int mul2, int mul3) throws NegativeWhiteBalanceException {
         this.mul0 = mul0;
         this.mul1 = mul1;
         this.mul2 = mul2;
