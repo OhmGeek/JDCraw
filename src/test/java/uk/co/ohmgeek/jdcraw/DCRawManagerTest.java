@@ -15,7 +15,7 @@ import java.util.List;
  */
 public class DCRawManagerTest extends TestCase {
     public void testSerialiser() throws NegativeBrightnessException {
-        DCRawManager m = new DCRawManager(new File("~/img.dng")); //file currently doesn't exist, but
+        DCRawManager m = new DCRawManager(new File("img.dng")); //file currently doesn't exist, but
                                                                     // we'll ignore this for now
         m.addOperation(new FlipImage(FlipAngle.DEGREES90)); // -t 90
         m.addOperation(new SetBrightness(1)); // -b 1
@@ -33,7 +33,7 @@ public class DCRawManagerTest extends TestCase {
         //then command for brightness
         expectedResults.add("-b");
         expectedResults.add("1");
-        expectedResults.add("~/img.dng");
+        expectedResults.add(new File("img.dng").getAbsolutePath());
 
         assertEquals(expectedResults, cmd);
     }

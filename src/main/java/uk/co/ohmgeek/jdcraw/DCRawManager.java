@@ -1,6 +1,5 @@
 package uk.co.ohmgeek.jdcraw;
 
-import com.sun.xml.internal.ws.util.ReadAllStream;
 import org.apache.commons.io.FilenameUtils;
 import uk.co.ohmgeek.jdcraw.operations.SetFileOutputType;
 
