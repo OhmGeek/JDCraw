@@ -9,7 +9,10 @@ import java.util.List;
  * Created by ryan on 30/06/17.
  */
 public class SetWBCustomOperation implements RAWOperation {
-    private int mul0, mul1, mul2, mul3;
+    private double mul0;
+    private double mul1;
+    private double mul2;
+    private double mul3;
 
     /**
      * Create an operation to create a custom white balance setting.
@@ -18,7 +21,7 @@ public class SetWBCustomOperation implements RAWOperation {
      * @param mul2 : multiplier 2
      * @param mul3 : multiplier 3
      */
-    public SetWBCustomOperation(int mul0, int mul1, int mul2, int mul3) throws NegativeWhiteBalanceException {
+    public SetWBCustomOperation(double mul0, double mul1, double mul2, double mul3) throws NegativeWhiteBalanceException {
         this.mul0 = mul0;
         this.mul1 = mul1;
         this.mul2 = mul2;

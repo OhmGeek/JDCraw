@@ -17,10 +17,10 @@ public class SetWBCustomOperationTest extends TestCase {
         // build expected results
         List<String> expectedResults = new ArrayList<String>();
         expectedResults.add("-r");
-        expectedResults.add("1");
-        expectedResults.add("2");
-        expectedResults.add("3");
-        expectedResults.add("4");
+        expectedResults.add("1.0");
+        expectedResults.add("2.0");
+        expectedResults.add("3.0");
+        expectedResults.add("4.0");
 
         assertEquals(op.getArgumentList(), expectedResults);
     }
