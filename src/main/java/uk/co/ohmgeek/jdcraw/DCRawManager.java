@@ -36,7 +36,6 @@ public class DCRawManager {
         ProcessBuilder dcrawProcessBuilder = new ProcessBuilder();
 
         dcrawProcessBuilder.command(getCMDToExecute());
-        System.out.println(getCMDToExecute());
         // start running the render process
         Process dcrawProcess = dcrawProcessBuilder.start();
 
@@ -47,12 +46,11 @@ public class DCRawManager {
     }
 
     public List<String> getCMDToExecute() {
-        final String EXECUTABLE_CMD = "dcraw"; //todo change this to be customisable (OS based)
 
         List<String> fullCMD = new ArrayList<String>();
 
         //add the executable as the first instruction.
-        fullCMD.add(EXECUTABLE_CMD);
+        fullCMD.add(customLibSettings.getDcrawPath());
 
         // now go through all operation list commands, adding args.
         for(RAWOperation op : operationList) {
