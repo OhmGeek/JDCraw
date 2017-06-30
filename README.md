@@ -3,10 +3,7 @@
 [![codecov](https://codecov.io/gh/OhmGeek/JDCraw/branch/master/graph/badge.svg)](https://codecov.io/gh/OhmGeek/JDCraw)
 # JDCraw
 ## Introduction
-When investigating the use of RAW processing with Java, I found there weren't many useful tools available.
-DCRaw is the standard way of processing RAW images, but there was no Java library available.
-
-JDCraw is simply a wrapper around the executable, which provides function calls that equally call functions on the executable. This isn't the nicest option, but to me it appeared nicer than using JNI (and slightly quicker for proof of concept).
+JDCraw is a wrapper around the popular dcraw executable.
 
 The current system is very much **in development**, and as such, I wouldn't yet use it in a production system. 
 
@@ -36,15 +33,42 @@ Then, open Terminal and run the following:
 ```bash
 sudo brew install dcraw
 ```
+## Usage
+Using JDCraw is very simple. Using a Java File object, simply create an instance  of DCRawManager passing the file in: 
 
-## Tests:
+```java
+File fileToEdit = new File('/path/to/file.dng');
+
+DCRawManager manager = new DCRawManager(fileToEdit);
+```
+
+Then, one can use this manager object in several ways.
+
+### Operations
+DCRaw arguments are expressed in pure English. Let's say I want to flip an image by 90 degrees. Simply
+create an operation that does that:
+```java
+RawOperation flipOperation = 
+            new FlipImageOperation(FlipAngleEnum.DEGREES90);
+```
+Then, add it to the list of operations for DCraw to carry out:
+
+```java
+...
+
+manager.addOperation(flipOperation);
+```
+
+Simple!
+
+## Tests
 There are some tests, but these are not entirely comprehensive. To run the ones present, use Maven:
 
 ```bash
 mvn test
 ```
 
-## License:
+## License
 Licensed under the MIT License.
 
 DCRaw is licensed under the LGPLv2 license. 
