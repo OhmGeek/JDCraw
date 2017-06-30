@@ -1,3 +1,5 @@
+package uk.co.ohmgeek.jdcraw;
+
 import junit.framework.JUnit4TestCaseFacade;
 import junit.framework.TestCase;
 import uk.co.ohmgeek.jdcraw.*;

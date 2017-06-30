@@ -1,3 +1,5 @@
+package uk.co.ohmgeek.jdcraw;
+
 import junit.framework.TestCase;
 import org.junit.Rule;
 import org.junit.Test;
