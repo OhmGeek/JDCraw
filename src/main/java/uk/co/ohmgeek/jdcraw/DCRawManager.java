@@ -5,6 +5,7 @@ import uk.co.ohmgeek.jdcraw.operations.SetFileOutputType;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -16,7 +17,10 @@ public class DCRawManager {
     private File file;
     private List<RAWOperation> operationList;
     public DCRawManager(File fileToProcess) {
+        operationList = new ArrayList<RAWOperation>();
+
         this.file = fileToProcess;
+
     }
 
     /**
@@ -27,12 +31,30 @@ public class DCRawManager {
     public String process() throws IOException {
         ProcessBuilder dcrawProcessBuilder = new ProcessBuilder();
 
+        dcrawProcessBuilder.command(getCMDToExecute());
         // start running the render process
         Process dcrawProcess = dcrawProcessBuilder.start();
 
         // get the filename
         // todo use a function to output this, as it will be tiff with -T arg, otherwise it will be different.
         return getDestination(); //return the path of the destination.
+    }
+
+    public List<String> getCMDToExecute() {
+        final String EXECUTABLE_CMD = "dcraw"; //todo change this to be customisable (OS based)
+
+        List<String> fullCMD = new ArrayList<String>();
+
+        //add the executable as the first instruction.
+        fullCMD.add(EXECUTABLE_CMD);
+
+        // now go through all operation list commands, adding args.
+        for(RAWOperation op : operationList) {
+            fullCMD.addAll(op.getArgumentList());
+        }
+
+        // return the constructed command
+        return fullCMD;
     }
 
     /**
