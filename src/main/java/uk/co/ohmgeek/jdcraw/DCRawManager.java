@@ -1,10 +1,13 @@
 package uk.co.ohmgeek.jdcraw;
 
+import com.sun.xml.internal.ws.util.ReadAllStream;
 import org.apache.commons.io.FilenameUtils;
 import uk.co.ohmgeek.jdcraw.operations.SetFileOutputType;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,11 +35,12 @@ public class DCRawManager {
         ProcessBuilder dcrawProcessBuilder = new ProcessBuilder();
 
         dcrawProcessBuilder.command(getCMDToExecute());
+        System.out.println(getCMDToExecute());
         // start running the render process
         Process dcrawProcess = dcrawProcessBuilder.start();
 
-        // get the filename
-        // todo use a function to output this, as it will be tiff with -T arg, otherwise it will be different.
+        BufferedReader reader = new BufferedReader(new InputStreamReader(dcrawProcess.getErrorStream()));
+        System.out.println(reader.readLine());
         return getDestination(); //return the path of the destination.
     }
 
@@ -53,6 +57,8 @@ public class DCRawManager {
             fullCMD.addAll(op.getArgumentList());
         }
 
+        //finally add the file to read
+        fullCMD.add(this.file.getAbsolutePath());
         // return the constructed command
         return fullCMD;
     }

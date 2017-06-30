@@ -33,6 +33,7 @@ public class DCRawManagerTest extends TestCase {
         //then command for brightness
         expectedResults.add("-b");
         expectedResults.add("1");
+        expectedResults.add("~/img.dng");
 
         assertEquals(expectedResults, cmd);
     }
