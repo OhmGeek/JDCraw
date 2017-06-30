@@ -18,10 +18,12 @@ import java.util.List;
 public class DCRawManager {
     private File file;
     private List<RAWOperation> operationList;
+    private LibSettings customLibSettings;
+
     public DCRawManager(File fileToProcess) {
         operationList = new ArrayList<RAWOperation>();
-
-        this.file = fileToProcess;
+        this.customLibSettings = new DefaultLibSettings(); // init default settings
+        this.file = fileToProcess; // set the file
 
     }
 
@@ -34,7 +36,6 @@ public class DCRawManager {
         ProcessBuilder dcrawProcessBuilder = new ProcessBuilder();
 
         dcrawProcessBuilder.command(getCMDToExecute());
-        System.out.println(getCMDToExecute());
         // start running the render process
         Process dcrawProcess = dcrawProcessBuilder.start();
 
@@ -45,12 +46,11 @@ public class DCRawManager {
     }
 
     public List<String> getCMDToExecute() {
-        final String EXECUTABLE_CMD = "dcraw"; //todo change this to be customisable (OS based)
 
         List<String> fullCMD = new ArrayList<String>();
 
         //add the executable as the first instruction.
-        fullCMD.add(EXECUTABLE_CMD);
+        fullCMD.add(customLibSettings.getDcrawPath());
 
         // now go through all operation list commands, adding args.
         for(RAWOperation op : operationList) {
@@ -94,5 +94,9 @@ public class DCRawManager {
      */
     public void addOperation(RAWOperation op) {
         operationList.add(op);
+    }
+
+    public void setLibSettings(LibSettings customSettings) {
+        this.customLibSettings = customSettings;
     }
 }
