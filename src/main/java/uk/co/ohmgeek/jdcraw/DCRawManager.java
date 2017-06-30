@@ -19,6 +19,11 @@ public class DCRawManager {
         this.file = fileToProcess;
     }
 
+    /**
+     * Process the image, with operations specified.
+     * @return destinationPath : the path to the destination as a string
+     * @throws IOException : error executing dcraw
+     */
     public String process() throws IOException {
         ProcessBuilder dcrawProcessBuilder = new ProcessBuilder();
 
@@ -30,6 +35,10 @@ public class DCRawManager {
         return getDestination(); //return the path of the destination.
     }
 
+    /**
+     * Get the destination path of the image.
+     * @return path : string.
+     */
     private String getDestination() {
         // first, get the path without extension
         String outputFilename = FilenameUtils.removeExtension(this.file.getPath());
