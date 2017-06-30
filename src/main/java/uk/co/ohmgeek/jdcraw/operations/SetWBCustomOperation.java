@@ -30,6 +30,11 @@ public class SetWBCustomOperation implements RAWOperation {
 
 
     }
+
+    /**
+     * Get the argument list passed to the dcraw argument list
+     * @return arguments : the argument list of strings
+     */
     public List<String> getArgumentList() {
         List<String> arguments = new ArrayList<String>();
 
