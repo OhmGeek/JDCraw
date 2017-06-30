@@ -23,6 +23,12 @@ public class SetWBCustomOperation implements RAWOperation {
         this.mul1 = mul1;
         this.mul2 = mul2;
         this.mul3 = mul3;
+
+        if(mul0 < 0 | mul1 < 0 | mul2 < 0 | mul3 < 0) {
+            throw new NegativeWhiteBalanceException();
+        }
+
+
     }
     public List<String> getArgumentList() {
         List<String> arguments = new ArrayList<String>();
