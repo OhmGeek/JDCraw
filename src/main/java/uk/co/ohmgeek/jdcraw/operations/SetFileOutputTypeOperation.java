@@ -8,14 +8,14 @@ import java.util.List;
 /**
  * Created by ryan on 29/06/17.
  */
-public class SetFileOutputType implements RAWOperation {
-    private FileOutputType type;
+public class SetFileOutputTypeOperation implements RAWOperation {
+    private FileOutputTypeEnum type;
 
     /**
      * Set File Output Type, being either Tiff, or PGM/PPM/PAM (abbreviated as PNM)
      * @param t : the file type to use
      */
-    public SetFileOutputType(FileOutputType t) {
+    public SetFileOutputTypeOperation(FileOutputTypeEnum t) {
         this.type = t;
     }
 
@@ -25,7 +25,7 @@ public class SetFileOutputType implements RAWOperation {
      */
     public List<String> getArgumentList() {
         List<String> args = new ArrayList<String>();
-        if(type == FileOutputType.TIFF) {
+        if(type == FileOutputTypeEnum.TIFF) {
             args.add("-T"); //only add the Tiff argument if we want tiff. otherwise, default to PNM.
         }
         return args;

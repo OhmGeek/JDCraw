@@ -1,10 +1,8 @@
 package uk.co.ohmgeek.jdcraw;
 
 import junit.framework.TestCase;
-import uk.co.ohmgeek.jdcraw.operations.ColourSpace;
-import uk.co.ohmgeek.jdcraw.operations.FileOutputType;
-import uk.co.ohmgeek.jdcraw.operations.SetColourSpace;
-import uk.co.ohmgeek.jdcraw.operations.SetFileOutputType;
+import uk.co.ohmgeek.jdcraw.operations.FileOutputTypeEnum;
+import uk.co.ohmgeek.jdcraw.operations.SetFileOutputTypeOperation;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +16,7 @@ public class SetFileOutputTypeTest extends TestCase {
         List<String> expected = new ArrayList<String>();
         expected.add("-T");
 
-        SetFileOutputType op = new SetFileOutputType(FileOutputType.TIFF);
+        SetFileOutputTypeOperation op = new SetFileOutputTypeOperation(FileOutputTypeEnum.TIFF);
 
         assertEquals(expected, op.getArgumentList());
     }
@@ -26,7 +24,7 @@ public class SetFileOutputTypeTest extends TestCase {
     public void testPNMFormat() {
         List<String> expected = new ArrayList<String>();
 
-        SetFileOutputType op = new SetFileOutputType(FileOutputType.PNM);
+        SetFileOutputTypeOperation op = new SetFileOutputTypeOperation(FileOutputTypeEnum.PNM);
 
         assertEquals(expected, op.getArgumentList());
     }

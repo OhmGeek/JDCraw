@@ -4,16 +4,16 @@ package uk.co.ohmgeek.jdcraw.operations;
  * An Enum to represent the angles that we can flip the image by.
  * Created by ryan on 29/06/17.
  */
-public enum FlipAngle {
+public enum FlipAngleEnum {
     NONE(0), DEGREES90(90), DEGREES180(180), DEGREES270(270);
 
     private final int angle;
 
     /**
-     * Constructor for creating an instance of the Enumeration FlipAngle.
+     * Constructor for creating an instance of the Enumeration FlipAngleEnum.
      * @param angle : the associated angle value in DCraw's command line.
      */
-    FlipAngle(int angle) {
+    FlipAngleEnum(int angle) {
         this.angle = angle;
     }
 

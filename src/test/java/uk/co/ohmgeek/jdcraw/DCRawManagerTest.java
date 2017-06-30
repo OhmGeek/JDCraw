@@ -1,10 +1,10 @@
 package uk.co.ohmgeek.jdcraw;
 
 import junit.framework.TestCase;
-import uk.co.ohmgeek.jdcraw.operations.FlipAngle;
-import uk.co.ohmgeek.jdcraw.operations.FlipImage;
+import uk.co.ohmgeek.jdcraw.operations.FlipAngleEnum;
+import uk.co.ohmgeek.jdcraw.operations.FlipImageOperation;
 import uk.co.ohmgeek.jdcraw.operations.NegativeBrightnessException;
-import uk.co.ohmgeek.jdcraw.operations.SetBrightness;
+import uk.co.ohmgeek.jdcraw.operations.SetBrightnessOperation;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -17,8 +17,8 @@ public class DCRawManagerTest extends TestCase {
     public void testSerialiser() throws NegativeBrightnessException {
         DCRawManager m = new DCRawManager(new File("img.dng")); //file currently doesn't exist, but
                                                                     // we'll ignore this for now
-        m.addOperation(new FlipImage(FlipAngle.DEGREES90)); // -t 90
-        m.addOperation(new SetBrightness(1)); // -b 1
+        m.addOperation(new FlipImageOperation(FlipAngleEnum.DEGREES90)); // -t 90
+        m.addOperation(new SetBrightnessOperation(1)); // -b 1
 
         List<String> cmd = m.getCMDToExecute();
 

@@ -9,14 +9,14 @@ import java.util.List;
  * Set the brightness level (custom)
  * Created by ryan on 29/06/17.
  */
-public class SetBrightness implements RAWOperation {
+public class SetBrightnessOperation implements RAWOperation {
     private int brightnessLevel;
 
     /**
-     * Operation to set the brightness
+     * SetColorSpaceOperation to set the brightness
      * @param brightnessLevel : the brightness level
      */
-    public SetBrightness(int brightnessLevel) throws NegativeBrightnessException {
+    public SetBrightnessOperation(int brightnessLevel) throws NegativeBrightnessException {
         if(brightnessLevel < 0) {
             throw new NegativeBrightnessException();
         }

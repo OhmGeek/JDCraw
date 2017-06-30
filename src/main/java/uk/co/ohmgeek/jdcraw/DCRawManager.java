@@ -1,7 +1,7 @@
 package uk.co.ohmgeek.jdcraw;
 
 import org.apache.commons.io.FilenameUtils;
-import uk.co.ohmgeek.jdcraw.operations.SetFileOutputType;
+import uk.co.ohmgeek.jdcraw.operations.SetFileOutputTypeOperation;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -38,8 +38,9 @@ public class DCRawManager {
         // start running the render process
         Process dcrawProcess = dcrawProcessBuilder.start();
 
-        BufferedReader reader = new BufferedReader(new InputStreamReader(dcrawProcess.getErrorStream()));
-        System.out.println(reader.readLine());
+        //todo take this and create an exception if there is no error stream. This is a DCRaw Error.
+        //        BufferedReader reader = new BufferedReader(new InputStreamReader(dcrawProcess.getErrorStream()));
+//        System.out.println(reader.readLine());
         return getDestination(); //return the path of the destination.
     }
 
@@ -71,10 +72,10 @@ public class DCRawManager {
         String outputFilename = FilenameUtils.removeExtension(this.file.getPath());
 
         boolean isTiff = false;
-        // look through operations, and look at property of SetFileOutputType instance (if there is one).
+        // look through operations, and look at property of SetFileOutputTypeOperation instance (if there is one).
         //todo optimise for multiple arguments that are the same.
         for (RAWOperation op: operationList) {
-            isTiff = op instanceof SetFileOutputType && op.getArgumentList().contains("-T");
+            isTiff = op instanceof SetFileOutputTypeOperation && op.getArgumentList().contains("-T");
         }
 
         //choose the correct extension

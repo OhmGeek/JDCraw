@@ -1,10 +1,8 @@
 package uk.co.ohmgeek.jdcraw;
 
 import junit.framework.TestCase;
-import uk.co.ohmgeek.jdcraw.operations.ColourSpace;
-import uk.co.ohmgeek.jdcraw.operations.FlipAngle;
-import uk.co.ohmgeek.jdcraw.operations.FlipImage;
-import uk.co.ohmgeek.jdcraw.operations.SetColourSpace;
+import uk.co.ohmgeek.jdcraw.operations.FlipAngleEnum;
+import uk.co.ohmgeek.jdcraw.operations.FlipImageOperation;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +17,7 @@ public class FlipImageTest extends TestCase {
         expectedOutput.add("-t");
         expectedOutput.add("0");
 
-        FlipImage op = new FlipImage(FlipAngle.NONE);
+        FlipImageOperation op = new FlipImageOperation(FlipAngleEnum.NONE);
         assertEquals(op.getArgumentList(), expectedOutput);
     }
     public void testAngleNinety() {
@@ -27,7 +25,7 @@ public class FlipImageTest extends TestCase {
         expectedOutput.add("-t");
         expectedOutput.add("90");
 
-        FlipImage op = new FlipImage(FlipAngle.DEGREES90);
+        FlipImageOperation op = new FlipImageOperation(FlipAngleEnum.DEGREES90);
         assertEquals(op.getArgumentList(), expectedOutput);
     }
     public void testAngleOneEighty() {
@@ -35,7 +33,7 @@ public class FlipImageTest extends TestCase {
         expectedOutput.add("-t");
         expectedOutput.add("180");
 
-        FlipImage op = new FlipImage(FlipAngle.DEGREES180);
+        FlipImageOperation op = new FlipImageOperation(FlipAngleEnum.DEGREES180);
         assertEquals(op.getArgumentList(), expectedOutput);
     }
     public void testAngleTwoSeventy() {
@@ -43,7 +41,7 @@ public class FlipImageTest extends TestCase {
         expectedOutput.add("-t");
         expectedOutput.add("270");
 
-        FlipImage op = new FlipImage(FlipAngle.DEGREES270);
+        FlipImageOperation op = new FlipImageOperation(FlipAngleEnum.DEGREES270);
         assertEquals(op.getArgumentList(), expectedOutput);
     }
 }

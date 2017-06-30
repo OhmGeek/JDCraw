@@ -8,14 +8,14 @@ import java.util.List;
 /**
  * Created by ryan on 29/06/17.
  */
-public class FlipImage implements RAWOperation {
-    private FlipAngle angle;
+public class FlipImageOperation implements RAWOperation {
+    private FlipAngleEnum angle;
 
     /**
      * Create an operation for flipping an image
-     * @param angle : The angle to flip the image by. It's specified as an Enum in FlipAngle.
+     * @param angle : The angle to flip the image by. It's specified as an Enum in FlipAngleEnum.
      */
-    public FlipImage(FlipAngle angle) {
+    public FlipImageOperation(FlipAngleEnum angle) {
         this.angle = angle;
     }
 

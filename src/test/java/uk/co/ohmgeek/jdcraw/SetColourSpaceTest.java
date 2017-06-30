@@ -1,11 +1,9 @@
 package uk.co.ohmgeek.jdcraw;
 
 import junit.framework.TestCase;
-import uk.co.ohmgeek.jdcraw.OptionStringBuilder;
-import uk.co.ohmgeek.jdcraw.operations.ColourSpace;
-import uk.co.ohmgeek.jdcraw.operations.SetColourSpace;
+import uk.co.ohmgeek.jdcraw.operations.ColourSpaceEnum;
+import uk.co.ohmgeek.jdcraw.operations.SetColorSpaceOperation;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +16,7 @@ public class SetColourSpaceTest extends TestCase {
         expectedOutput.add("-o");
         expectedOutput.add("0");
 
-        SetColourSpace op = new SetColourSpace(ColourSpace.RAW);
+        SetColorSpaceOperation op = new SetColorSpaceOperation(ColourSpaceEnum.RAW);
         assertEquals(op.getArgumentList(), expectedOutput);
     }
     public void testArgsSRGB() {
@@ -26,7 +24,7 @@ public class SetColourSpaceTest extends TestCase {
         expectedOutput.add("-o");
         expectedOutput.add("1");
 
-        SetColourSpace op = new SetColourSpace(ColourSpace.SRGB);
+        SetColorSpaceOperation op = new SetColorSpaceOperation(ColourSpaceEnum.SRGB);
         assertEquals(op.getArgumentList(), expectedOutput);
     }
     public void testArgsAdobeRGB() {
@@ -34,7 +32,7 @@ public class SetColourSpaceTest extends TestCase {
         expectedOutput.add("-o");
         expectedOutput.add("2");
 
-        SetColourSpace op = new SetColourSpace(ColourSpace.ADOBE_RGB);
+        SetColorSpaceOperation op = new SetColorSpaceOperation(ColourSpaceEnum.ADOBE_RGB);
         assertEquals(op.getArgumentList(), expectedOutput);
     }
     public void testArgsWide() {
@@ -42,7 +40,7 @@ public class SetColourSpaceTest extends TestCase {
         expectedOutput.add("-o");
         expectedOutput.add("3");
 
-        SetColourSpace op = new SetColourSpace(ColourSpace.WIDE);
+        SetColorSpaceOperation op = new SetColorSpaceOperation(ColourSpaceEnum.WIDE);
         assertEquals(op.getArgumentList(), expectedOutput);
     }
     public void testArgsProPhoto() {
@@ -50,7 +48,7 @@ public class SetColourSpaceTest extends TestCase {
         expectedOutput.add("-o");
         expectedOutput.add("4");
 
-        SetColourSpace op = new SetColourSpace(ColourSpace.ProPhoto);
+        SetColorSpaceOperation op = new SetColorSpaceOperation(ColourSpaceEnum.ProPhoto);
         assertEquals(op.getArgumentList(), expectedOutput);
     }
     public void testArgsXYZ() {
@@ -58,7 +56,7 @@ public class SetColourSpaceTest extends TestCase {
         expectedOutput.add("-o");
         expectedOutput.add("5");
 
-        SetColourSpace op = new SetColourSpace(ColourSpace.XYZ);
+        SetColorSpaceOperation op = new SetColorSpaceOperation(ColourSpaceEnum.XYZ);
         assertEquals(op.getArgumentList(), expectedOutput);
     }
     public void testArgsACES() {
@@ -66,7 +64,7 @@ public class SetColourSpaceTest extends TestCase {
         expectedOutput.add("-o");
         expectedOutput.add("6");
 
-        SetColourSpace op = new SetColourSpace(ColourSpace.ACES);
+        SetColorSpaceOperation op = new SetColorSpaceOperation(ColourSpaceEnum.ACES);
         assertEquals(op.getArgumentList(), expectedOutput);
     }
 

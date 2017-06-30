@@ -15,10 +15,10 @@ public class Application {
         System.out.println("Welcome to the decoder.");
         DCRawManager image = new DCRawManager(new File("/home/ryan/Downloads/L1004220.DNG"));
         try {
-            RAWOperation op = new SetColourSpace(ColourSpace.ADOBE_RGB);
+            RAWOperation op = new SetColorSpaceOperation(ColourSpaceEnum.ADOBE_RGB);
             image.addOperation(op);
 
-            op = new SetFileOutputType(FileOutputType.TIFF);
+            op = new SetFileOutputTypeOperation(FileOutputTypeEnum.TIFF);
             image.addOperation(op);
 
             String dest = image.process();

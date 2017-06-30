@@ -10,14 +10,14 @@ import java.util.List;
  *
  * Created by ryan on 29/06/17.
  */
-public class SetColourSpace implements RAWOperation{
-    private ColourSpace spaceToUse;
+public class SetColorSpaceOperation implements RAWOperation{
+    private ColourSpaceEnum spaceToUse;
 
     /**
      * Create an operation to set the Colour Space.
-     * @param spaceToUse : the specified colour space, found in the ColourSpace enum.
+     * @param spaceToUse : the specified colour space, found in the ColourSpaceEnum enum.
      */
-    public SetColourSpace(ColourSpace spaceToUse) {
+    public SetColorSpaceOperation(ColourSpaceEnum spaceToUse) {
         this.spaceToUse = spaceToUse;
     }
 
@@ -31,8 +31,6 @@ public class SetColourSpace implements RAWOperation{
         // dcraw -o [0-6] sets the colour space.
         args.add("-o");
         args.add(spaceToUse.dcrawConstant());
-        System.out.println("Value of chosen is:");
-        System.out.println(spaceToUse.dcrawConstant());
         return args;
     }
 }

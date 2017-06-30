@@ -5,7 +5,7 @@ package uk.co.ohmgeek.jdcraw.operations;
  *
  * Created by ryan on 29/06/17.
  */
-public enum ColourSpace {
+public enum ColourSpaceEnum {
     RAW(0), SRGB(1), ADOBE_RGB(2), WIDE(3), ProPhoto(4), XYZ(5), ACES(6);
 
     private final int num;
@@ -14,7 +14,7 @@ public enum ColourSpace {
      * Creates an instance of a colour space (from enum).
      * @param num : the associated number in DCRaw corresponding to the colour space.
      */
-    ColourSpace(int num) {
+    ColourSpaceEnum(int num) {
         this.num = num;
     }
 
