@@ -31,7 +31,9 @@ public class DCRawManager {
      * @throws IOException : error executing dcraw
      */
     public String process() throws IOException {
+
         ProcessBuilder dcrawProcessBuilder = new ProcessBuilder();
+        dcrawProcessBuilder.directory(this.file.getParentFile());
 
         dcrawProcessBuilder.command(getCMDToExecute());
         System.out.println(getCMDToExecute());
@@ -69,7 +71,11 @@ public class DCRawManager {
      */
     private String getDestination() {
         // first, get the path without extension
+        File cwd = new File(".");
+
         String outputFilename = FilenameUtils.removeExtension(this.file.getPath());
+
+
 
         boolean isTiff = false;
         // look through operations, and look at property of SetFileOutputTypeOperation instance (if there is one).
