@@ -10,13 +10,13 @@ import java.util.List;
  * Created by ryan on 29/06/17.
  */
 public class SetBrightnessOperation implements RAWOperation {
-    private int brightnessLevel;
+    private double brightnessLevel;
 
     /**
      * SetColorSpaceOperation to set the brightness
      * @param brightnessLevel : the brightness level
      */
-    public SetBrightnessOperation(int brightnessLevel) throws NegativeBrightnessException {
+    public SetBrightnessOperation(double brightnessLevel) throws NegativeBrightnessException {
         if(brightnessLevel < 0) {
             throw new NegativeBrightnessException();
         }
