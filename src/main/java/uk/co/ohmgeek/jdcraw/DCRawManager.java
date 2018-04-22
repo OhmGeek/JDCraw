@@ -50,6 +50,7 @@ public class DCRawManager {
         final String EXECUTABLE_CMD = "dcraw"; //todo change this to be customisable (OS based)
 
         List<String> fullCMD = new ArrayList<String>();
+        fullCMD.add("bash");
         fullCMD.add("sudo");
         //add the executable as the first instruction.
         fullCMD.add(EXECUTABLE_CMD);
