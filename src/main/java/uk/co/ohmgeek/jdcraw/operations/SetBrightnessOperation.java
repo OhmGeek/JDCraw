@@ -29,7 +29,7 @@ public class SetBrightnessOperation implements RAWOperation {
      */
     public List<String> getArgumentList() {
         List<String> args = new ArrayList<String>();
-        args.add("-S"); // indicate brightness
+        args.add("-W -b"); // indicate brightness
         args.add(String.valueOf(brightnessLevel)); // then add the brightness level
         return args;
     }
